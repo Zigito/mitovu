@@ -1,6 +1,8 @@
-const { Course, validate } = require('../models/course');
 const mongoose = require('mongoose');
+const { Course, validate } = require('../models/course');
+
 const express = require('express');
+
 const router = express.Router(); 
 
 /*  "/api/courses"
