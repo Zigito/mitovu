@@ -12,7 +12,7 @@ app.get('/api/courses', (req, res) => {
     res.send('Mitovu to the world');
 });
 
-app.post('/api/courses', (req, res) => {
+/* app.post('/api/courses', (req, res) => {
 
     //input  validation
     const { error } = validateCourse(req.body);
@@ -26,9 +26,9 @@ app.post('/api/courses', (req, res) => {
     };
     //courses.push(course);
     res.send(course);
-});
+}); */
 
-// Course Validation
+/* // Course Validation
 function validateCourse(course) {
 
     //define a Joi schema for validation
@@ -38,7 +38,7 @@ function validateCourse(course) {
     };
 
     return Joi.validate(course, schema);
-}
+} */
 
 
 //listen to port 3000 by default
