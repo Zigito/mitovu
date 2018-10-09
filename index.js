@@ -12,7 +12,7 @@ const courses = [
     { id: 4, name: 'Fractions'},
     { id: 5, name: 'Integration'}
     
-]
+];
 
 //Respond with "hello world" for requests that hit our root "/"
 app.get('/', async (req, res) => {
