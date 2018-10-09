@@ -16,12 +16,14 @@ app.get('/api/courses', async (req, res) => {
 
 app.post('/api/courses', async (req, res) => {
     //const { error } = validate(req.body);
-   // if (error) return res.status(400).send(error.details[0].message);
+    //if (error) return res.status(400).send(error.details[0].message);
 
-    //let course = { name: req.body.name };
+    let course = {
+        name: req.body.name
+     };
    //s course = await course.save();
 
-    res.send('hello');
+    res.send(course);
 });
 
 //listen to port 3000 by default
