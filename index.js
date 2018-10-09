@@ -1,12 +1,27 @@
 
+const mongoose = require('mongoose');
+const Joi = require('joi');
+const morgan = require('morgan'); //log http requests
+const home = require('./routes/home');
+const courses = require('./routes/courses');
 const express = require('express');
 const app = express();
 
-//Respond with "hello world" for requests that hit our root "/"
-app.get('/', function (req, res) {
- res.send('Welcome To Mitovu');
+
+mongoose.connect('mongodb://localhost/okestra')
+    .then(() => console.log('Connected to MongoDb...'))
+    .catch(err => console.error('Could not connect to MongoDb', err));
+
+
+app.use('/', home);
+app.use('/api/courses', courses);// for any route that starts with /api/courses use the courses router
+
+// Initialize the app
+var port = process.env.PORT || 3000 ; 
+app.listen(port, () => {
+    if (app.get('env') === 'development') {
+        console.log(`App now running on port ${port}`)
+    }
 });
-//listen to port 3000 by default
-app.listen(process.env.PORT || 3000);
 
 module.exports = app;
