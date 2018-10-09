@@ -2,6 +2,9 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json());
+
+
 //Respond with "hello world" for requests that hit our root "/"
 app.get('/', function (req, res) {
  res.send('Mitovu App');
@@ -18,11 +21,10 @@ app.post('/api/courses', async (req, res) => {
     //const { error } = validate(req.body);
     //if (error) return res.status(400).send(error.details[0].message);
 
-    let course = {
+    const course = {
         name: req.body.name
      };
-   //s course = await course.save();
-
+   let course = await course.save();
     res.send(course);
 });
 
