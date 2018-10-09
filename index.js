@@ -5,13 +5,13 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('Mitovu to the world');
+    res.send('Mitovu API');
 });
 
-app.get('/api/courses', (req, res) => {
+/* app.get('/api/courses', (req, res) => {
     res.send('Mitovu to the world');
 });
-
+ */
 /* app.post('/api/courses', (req, res) => {
 
     //input  validation
