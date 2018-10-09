@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose');
-const { Course, validate } = require('../models/course');
+const { Course, validate } = require('./models/course');
 const Joi = require('joi');
 const home = require('./routes/home');
 const courses = require('./routes/courses');

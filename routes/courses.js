@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
+c/* onst mongoose = require('mongoose');
 const { Course, validate } = require('../models/course');
 
 const express = require('express');
 
-const router = express.Router(); 
+const router = express.Router();  */
 
 /*  "/api/courses"
  *    GET: finds all courses
  *    POST: creates a new course
  */
 
-router.get('/', async (req, res) => {
+/* router.get('/', async (req, res) => {
     const courses = await Course.find().sort('name');
     res.send(courses);
 });
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
 
     res.send(course);
 });
-
+ */
 
 /*  "/api/courses/:id"
 *    GET: find course by id
@@ -82,4 +82,4 @@ router.delete('/:id', (req, res) => {
  */
 
 
-module.exports = router;
+//module.exports = router;
