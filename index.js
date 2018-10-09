@@ -7,20 +7,23 @@ app.get('/', function (req, res) {
  res.send('Mitovu App');
 });
 
-app.get('/api/courses', function (req, res) {
+app.get('/api/courses', async (req, res) => { 
     res.send({
-        courses: [{
-            'name' : 'Algebra',
-        },
-        {
-            'name': 'Geometry',
-        },
-        {
-            'name': 'Calculus',
-        },
-    ]
+        courses: [{'name' : 'Algebra'}, {'name': 'Geometry'}, {'name': 'Calculus'}]
     });
 });
+
+
+router.post('/api/courses', async (req, res) => {
+    //const { error } = validate(req.body);
+   // if (error) return res.status(400).send(error.details[0].message);
+
+    let course = new Course({ name: req.body.name });
+   //s course = await course.save();
+
+    res.send(course);
+});
+
 //listen to port 3000 by default
 app.listen(process.env.PORT || 3000);
 
