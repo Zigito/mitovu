@@ -1,7 +1,7 @@
 //const mongoose = require('mongoose');
-const Joi = require('joi');
+/* const Joi = require('joi');
 const express = require('express');
-const router = express.Router();
+const router = express.Router(); */
 
 //create the model
 /* const Course = new mongoose.model('Course', new mongoose.Schema({
@@ -18,7 +18,7 @@ const router = express.Router();
  *    POST: creates a new course
  */
 
-router.get('/', (req, res) => {
+/* router.get('/', (req, res) => {
     res.send('Mitovu to the world');
 });
 
@@ -37,9 +37,9 @@ router.post('/', (req, res) => {
     //courses.push(course);
     res.send(course);
 });
-
+ */
 // Course Validation
-function validateCourse(course) {
+f/* unction validateCourse(course) {
 
     //define a Joi schema for validation
     const schema = {
@@ -50,4 +50,4 @@ function validateCourse(course) {
     return Joi.validate(course, schema);
 }
 
-module.exports = router;
+module.exports = router; */
