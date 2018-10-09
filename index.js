@@ -19,9 +19,7 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/api/courses', async (req, res) => { 
-    res.send({
-        courses: [{'name' : 'Algebra'}, {'name': 'Geometry'}, {'name': 'Calculus'}]
-    });
+    res.send(courses);
 });
 
 
