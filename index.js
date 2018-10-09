@@ -24,7 +24,7 @@ app.post('/api/courses', async (req, res) => {
     const course = {
         name: req.body.name
      };
-   let course = await course.save();
+     
     res.send(course);
 });
 
