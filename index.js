@@ -8,7 +8,9 @@ const courses = [
     { id: 1, name: 'Algebra' },
     { id: 2, name: 'Geometry' },
     { id: 3, name: 'Calculus' },
-    { id: 4, name: 'Fractions' }
+    { id: 4, name: 'Fractions'},
+    { id: 5, name: 'Integration'}
+    
 ]
 
 //Respond with "hello world" for requests that hit our root "/"
@@ -25,7 +27,7 @@ app.get('/api/courses', async (req, res) => {
 
 app.post('/api/courses', async (req, res) => {
     const { error } = validateCourse(req.body);
-    
+
     if (error) return res.status(400).send(error.details[0].message);
 
     const course = {
