@@ -1,42 +1,25 @@
+const { Course, validate } = require('../models/course');
 const mongoose = require('mongoose');
-const Joi = require('joi');
 const express = require('express');
-const router = express.Router(); // definig a router
-
-
-
-//create the model
-const Course = new mongoose.model('Course', new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 255
-    }
-}));
+const router = express.Router(); 
 
 /*  "/api/courses"
  *    GET: finds all courses
  *    POST: creates a new course
  */
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    const courses = await Course.find().sort('name');
     res.send(courses);
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+    const { error } = validate(req.body);
+    if (error)  return res.status(400).send(error.details[0].message);
 
-    //input  validation
-    const { error } = validateCourse(req.body);
-    if (error) {
-        return res.status(400).send(error.details[0].message);
-    }
+    let course = new Course({ name: req.body.name });
+    course = await course.save();
 
-    const course = {
-        id: courses.length + 1,
-        name: req.body.name
-    };
-    courses.push(course);
     res.send(course);
 });
 
@@ -47,7 +30,7 @@ router.post('/', (req, res) => {
 *    DELETE: deletes course by id
 */
 
-router.get('/:id', (req, res) => {
+/* router.get('/:id', (req, res) => {
     //lookup if course with id        
     // If course doesn't exist return 404
     console.log('Put');
@@ -55,11 +38,11 @@ router.get('/:id', (req, res) => {
     if (!course) { return res.status(404).send('The course with given Id was not found.'); }
 
     res.send(course);
-});
+}); */
 
 
 
-router.put('/:id', (req, res) => {
+/* router.put('/:id', (req, res) => {
     //lookup if course with id        
     // If course doesn't exist return 404
     const course = courses.find(c => c.id === parseInt(req.params.id));
@@ -94,18 +77,7 @@ router.delete('/:id', (req, res) => {
     //return the deleted course
     res.send(courses);
 });
+ */
 
-
-// Course Validation
-function validateCourse(course) {
-
-    //define a Joi schema for validation
-    const schema = {
-        name: Joi.string().min(5).required()
-        //   level: Joi.number().min().required()
-    };
-
-    return Joi.validate(course, schema);
-}
 
 module.exports = router;
