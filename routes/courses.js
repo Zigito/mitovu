@@ -1,4 +1,4 @@
-c/* onst mongoose = require('mongoose');
+/* const mongoose = require('mongoose');
 const { Course, validate } = require('../models/course');
 
 const express = require('express');
