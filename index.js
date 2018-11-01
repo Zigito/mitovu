@@ -80,6 +80,9 @@ async function createCourse() {
 async function getCourses() {
     const courses = await Course.find();
 }
+
+createCourse();
+
 var app = express();
 //Respond with "hello world" for requests that hit our root "/"
 app.get('/', function (req, res) {
