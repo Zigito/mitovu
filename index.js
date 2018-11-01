@@ -54,25 +54,31 @@ const courseSchema = new mongoose.Schema({
 
 //create the data model
 const Course = mongoose.model('Course', courseSchema);
-const course = new Course({
-    name: 'Algebra',
-    author: 'Osagie',
-    category: 'middle',
-    tags: ['conceptual', 'stem'],
-    isPublished: true,
-    price: 30.50
-});
 
-try {
-    const result = await course.save();
-    console.log(result);
+async function createCourse() {
+    const course = new Course({
+        name: 'Algebra',
+        author: 'Osagie',
+        category: 'middle',
+        tags: ['conceptual', 'stem'],
+        isPublished: true,
+        price: 30.50
+    });
+
+    try {
+        const result = await course.save();
+        console.log(result);
+    }
+    catch (ex) {
+        //iterating over the validation error object
+        for (field in ex.errors)
+            console.log(ex.errors[field].message);
+        //console.log(ex.message);
+    }
 }
-catch (ex) {
-    //iterating over the validation error object
-    for (field in ex.errors)
-        console.log(ex.errors[field].message);
-    //console.log(ex.message);
-}
+
+
+
 
 
 var app = express();
