@@ -26,10 +26,10 @@ async function createCourse() {
     });
 
     const result = await course.save();
-    console.log(result);
+    //console.log(result);
 }
 
-createCourse();
+var courseResult  = createCourse();
 
 var app = express();
 //Respond with "hello world" for requests that hit our root "/"
