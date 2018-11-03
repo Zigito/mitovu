@@ -24,7 +24,8 @@ app.post('/', function (req, res) {
     }
 
     const course = {
-        name: req.body.name
+        name: req.body.name,
+        category: req.body.category
     };
 
     res.send(course);
