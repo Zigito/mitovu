@@ -1,6 +1,6 @@
 var express = require('express');
-const Joi = require('joi');
-const _ = require('lodash');
+//const Joi = require('joi');
+//const _ = require('lodash');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://kogoradev:CnxwQbK7SykLRq@206.189.17.119:27017/mitovu')
     .then(() => console.log('Connected to MongoDb...'))
