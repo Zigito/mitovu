@@ -12,6 +12,7 @@ app.get('/', function (req, res) {
     res.send('Mitovu App');
 });
 
+
 app.post('/', function (req, res) {
 
     //input  validation
@@ -19,6 +20,10 @@ app.post('/', function (req, res) {
     if (error) {
         return res.status(400).send(error.details[0].message);
     }
+
+    const course = {
+        name: req.body.name
+    };
 
     res.send(course);
 });
