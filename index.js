@@ -11,8 +11,6 @@ var app = express();
 app.get('/', function (req, res) {
     res.send('Mitovu App');
 });
-user = new User(_.pick(req.body, ['name', 'email', 'password']));
-
 
 router.post('/', (req, res) => {
 
