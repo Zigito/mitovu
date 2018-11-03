@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
     res.send('Mitovu App');
 });
 
-router.post('/', (req, res) => {
+app.post('/', (req, res) => {
 
     //input  validation
     const { error } = validateCourse(req.body);
