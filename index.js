@@ -5,8 +5,10 @@ mongoose.connect('mongodb://kogoradev:CnxwQbK7SykLRq@206.189.17.119:27017/mitovu
     .then(() => console.log('Connected to MongoDb...'))
     .catch(err => console.error('Could not connect to MongoDb', err));
 
-
 var app = express();
+
+app.use(express.json());
+
 //Respond with "hello world" for requests that hit our root "/"
 app.get('/', function (req, res) {
     res.send('Mitovu App');
