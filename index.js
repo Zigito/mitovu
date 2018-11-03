@@ -1,4 +1,5 @@
 var express = require('express');
+const Joi = require('joi');
 const _ = require('lodash');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://kogoradev:CnxwQbK7SykLRq@206.189.17.119:27017/mitovu')
@@ -12,7 +13,7 @@ app.get('/', function (req, res) {
     res.send('Mitovu App');
 });
 
-app.post('/', (req, res) => {
+/* app.post('/', function (req, res)  {
 
     //input  validation
     const { error } = validateCourse(req.body);
@@ -35,14 +36,7 @@ function validateCourse(course) {
 
     return Joi.validate(course, schema);
 }
-
-
-//Respond with "hello world" for requests that hit our root "/"
-/* app.get('/courses', function (req, res) {
-    const courses = getCourses();
-    res.send(courses);
-}); */
-
+ */
 
 //listen to port 3000 by default
 app.listen(process.env.PORT || 3000);
