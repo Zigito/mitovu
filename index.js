@@ -11,7 +11,7 @@ app.use(express.json());
 
 //Respond with "hello world" for requests that hit our root "/"
 app.get('/', function (req, res) {
-    res.send('Mitovu App');
+    res.send('Sitovu App');
 });
 
 
