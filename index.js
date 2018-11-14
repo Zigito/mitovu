@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const customers = require('./routes/customers');
+const customers = require('./routes/courses');
 var express = require('express');
 const mongoose = require('mongoose');
 
