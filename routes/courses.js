@@ -6,7 +6,7 @@ var express = require('express');
 const router = express.Router();
 
 //Respond with "hello world" for requests that hit our root "/"
-router.get('/', function (req, res) {
+router.get('/', async (req, res) => {
     res.send('Welcome To Sitovu');
 });
 
