@@ -17,7 +17,7 @@ const courseSchema = new mongoose.Schema({
 });
 
 
-const User = mongoose.model('Course', courseSchema);
+const Course = mongoose.model('Course', courseSchema);
 
 function validateCourse(course) {
     const schema = {
@@ -28,5 +28,5 @@ function validateCourse(course) {
     return Joi.validate(course, schema);
 }
 
-exports.Customer = Course;
+exports.Course = Course;
 exports.validate = validateCourse;
