@@ -1,5 +1,5 @@
 //const Joi = require('joi');
-const { Customer, validate } = require('../models/course'); 
+const { Customer, validate } = require('/home/aghedo/mitovu/models/course'); 
 const mongoose = require('mongoose');
 const _ = require('lodash');
 var express = require('express');
