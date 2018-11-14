@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const customers = require('./routes/customers');
 var express = require('express');
 const mongoose = require('mongoose');
 
@@ -11,8 +12,8 @@ mongoose.connect('mongodb://kogoradev:CnxwQbK7SykLRq@206.189.17.119:27017/mitovu
 
 var app = express();
 
-  app.use(express.json());
-
+app.use(express.json());
+app.use('/api/customers', customers);
 
 
 
