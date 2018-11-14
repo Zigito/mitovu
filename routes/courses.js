@@ -1,32 +1,34 @@
-const Joi = require('joi');
+//const Joi = require('joi');
+const { Customer, validate } = require('../models/customer'); 
+const mongoose = require('mongoose');
 const _ = require('lodash');
 var express = require('express');
 const router = express.Router();
 
 //Respond with "hello world" for requests that hit our root "/"
 router.get('/', function (req, res) {
-    res.send('Mitovu App');
+    res.send('Sitovu App');
 });
 
 
-router.post('/', function (req, res) {
-
+router.post('/', async (req, res) => {
     //input  validation
-    const { error } = validateCourse(req.body);
-    if (error) {
-        return res.status(400).send(error.details[0].message);
-    }
+    const { error } = validate(req.body);
+    if (error)  return res.status(400).send(error.details[0].message);
 
-    const course = {
+
+    let course = new Course({
         name: req.body.name,
         category: req.body.category
-    };
+    });
+
+    course = await course.save();
 
     res.send(course);
 });
 
 
-function validateCourse(course) {
+/* function validateCourse(course) {
 
     //define a Joi schema for validation
     const schema = {
@@ -35,7 +37,7 @@ function validateCourse(course) {
     };
 
     return Joi.validate(course, schema);
-}
+} */
 
 
 module.exports = router; 
