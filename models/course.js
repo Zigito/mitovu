@@ -16,23 +16,17 @@ const courseSchema = new mongoose.Schema({
     }
 });
 
-/* //adds method generateAuthToken to user object
-userSchema.methods.generateAuthToken = function () {
-    const token = jwt.sign({ _id: this._id }, config.get('jwtPrivateKey'));
-    return token;
-}
- */
 
-const User = mongoose.model('Customer', courseSchema);
+const User = mongoose.model('Course', courseSchema);
 
-function validateCustomer(customer) {
+function validateCourse(course) {
     const schema = {
         name: Joi.string().min(3).max(50).required(),
         category: Joi.string().min(5).max(255).required()
     };
 
-    return Joi.validate(customer, schema);
+    return Joi.validate(course, schema);
 }
 
-exports.Customer = Customer;
-exports.validate = validateCustomer;
+exports.Customer = Course;
+exports.validate = validateCourse;
