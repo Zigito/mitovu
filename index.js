@@ -10,14 +10,9 @@ mongoose.connect('mongodb://kogoradev:CnxwQbK7SykLRq@206.189.17.119:27017/mitovu
     .catch(err => console.error('Could not connect to MongoDb', err));
 
 app.use(express.json());
-
 app.use('/api/courses', courses);
 
 
 // Initialize the app
-var port = process.env.PORT || 3000;
-app.listen(port, () => {
-    if (app.get('env') === 'development') {
-        console.log(`App now running on port ${port}`)
-    }
-});
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on port ${port}...`));
