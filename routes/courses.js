@@ -7,7 +7,7 @@ const router = express.Router();
 
 //Respond with "hello world" for requests that hit our root "/"
 router.get('/', function (req, res) {
-    res.send('Sitovu App');
+    res.send('Welcome To Sitovu');
 });
 
 
